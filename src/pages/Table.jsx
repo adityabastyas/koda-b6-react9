@@ -1,13 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Table() {
-  const [histories, setHistories] = React.useState([]);
+  const data = useSelector((state) => state.survey.data);
 
-  React.useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("history")) || [];
-    setHistories(data);
-  }, []);
   return (
     <>
       <div className='bg-[#f0ebf7] grid grid-cols-1 justify-center gap-5 my-8 px-[225px]'>
@@ -47,7 +44,7 @@ function Table() {
           </thead>
 
           <tbody className='text-center font-semibold'>
-            {histories.map((item, index) => (
+            {data.map((item, index) => (
               <tr key={index}>
                 <td className='p-3 border'>{item.nama}</td>
                 <td className='p-3 border'>{item.umur}</td>
