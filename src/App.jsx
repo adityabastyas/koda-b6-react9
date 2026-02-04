@@ -2,6 +2,8 @@ import React from "react";
 import FormSurvey from "./pages/FormSurvey";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Table from "./pages/Table";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -17,9 +19,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <div>
+      <Provider store={store}>
         <RouterProvider router={router} />
-      </div>
+      </Provider>
     </>
   );
 }

@@ -19,7 +19,7 @@ function FormSurvey() {
     resolver: yupResolver(validation),
   });
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function onSave(data) {
     console.log(data);
@@ -27,7 +27,7 @@ function FormSurvey() {
     histories.push(data);
     localStorage.setItem("history", JSON.stringify(histories));
 
-    // navigate("/table");
+    navigate("/submission");
   }
   return (
     <>
