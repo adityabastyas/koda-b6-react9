@@ -3,6 +3,8 @@ import Input from "../components/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { addData } from "../redux/reducers/surveyResultReducer";
+import { useDispatch } from "react-redux";
 
 const validation = yup.object({
   nama: yup.string().required("Nama Wjib di isi"),
@@ -21,11 +23,10 @@ function FormSurvey() {
 
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
   function onSave(data) {
-    console.log(data);
-    let histories = JSON.parse(localStorage.getItem("history")) || [];
-    histories.push(data);
-    localStorage.setItem("history", JSON.stringify(histories));
+    dispatch(addData(data));
 
     navigate("/submission");
   }
