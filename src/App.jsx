@@ -1,7 +1,14 @@
 import React from "react";
+import FormSurvey from "./pages/FormSurvey";
 
 function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <div>
+        <FormSurvey />
+      </div>
+    </>
+  );
 }
 
 export default App;
