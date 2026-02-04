@@ -1,9 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const validation = yup.object({
+  email: yup.string().email("Email tidak valid").required("Email wajib diisi"),
+
+  password: yup.string().required("Password wajib diisi"),
+});
 
 function Login() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(validation),
+  });
   const navigate = useNavigate();
 
   const onSave = () => {
@@ -25,6 +35,11 @@ function Login() {
             type='email'
             id='email'
           />
+          {formState.errors.email && (
+            <span className='text-sm text-red-700'>
+              {formState.errors.email.message}
+            </span>
+          )}
         </div>
         <div className='flex flex-col'>
           <label htmlFor='password'>Password</label>
@@ -34,6 +49,11 @@ function Login() {
             id='password'
             type='password'
           />
+          {formState.errors.password && (
+            <span className='text-sm text-red-700'>
+              {formState.errors.password.message}
+            </span>
+          )}
         </div>
         <button className='cursor-pointer border rounded-lg'>Login</button>
       </form>
