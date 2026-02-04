@@ -11,8 +11,8 @@ const surveyResultSlice = createSlice({
     addData: (state, actions) => {
       state.data.push(actions.payload);
     },
-    removeData: (state) => {
-      state.data = [];
+    removeData: (state, actions) => {
+      state.data = state.data.fil
     },
   },
 });

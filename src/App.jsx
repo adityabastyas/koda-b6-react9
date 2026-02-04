@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Table from "./pages/Table";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/submission",
     element: <Table />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 

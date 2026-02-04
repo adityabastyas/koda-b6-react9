@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeData } from "../redux/reducers/surveyResultReducer";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 function Table() {
   const data = useSelector((state) => state.survey.data);
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -19,6 +23,9 @@ function Table() {
           <thead>
             <tr>
               <th rowspan='2' className='p-3 border font-medium'>
+                No
+              </th>
+              <th rowspan='2' className='p-3 border font-medium'>
                 Nama
               </th>
               <th rowspan='2' className='p-3 border font-medium'>
@@ -33,6 +40,7 @@ function Table() {
               <th colspan='4' className='p-3 border font-medium'>
                 Brand Rokok
               </th>
+              <th rowspan='2'>Action</th>
             </tr>
 
             <tr>
@@ -46,6 +54,7 @@ function Table() {
           <tbody className='text-center font-semibold'>
             {data.map((item, index) => (
               <tr key={index}>
+                <td className='p-3 border'>{index + 1}</td>
                 <td className='p-3 border'>{item.nama}</td>
                 <td className='p-3 border'>{item.umur}</td>
                 <td className='p-3 border'>{item.jenisKelamin}</td>
@@ -54,6 +63,12 @@ function Table() {
                 <td className='p-3 border'>{item.luckyStrike ? "v" : "-"}</td>
                 <td className='p-3 border'>{item.marlboro ? "v" : "-"}</td>
                 <td className='p-3 border'>{item.esse ? "v" : "-"}</td>
+                <button
+                  className='p-3 border'
+                  onClick={() => dispatch(removeData(item))}
+                >
+                  <FaRegTrashAlt />
+                </button>
               </tr>
             ))}
           </tbody>
