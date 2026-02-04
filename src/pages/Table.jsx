@@ -40,7 +40,9 @@ function Table() {
               <th colspan='4' className='p-3 border font-medium'>
                 Brand Rokok
               </th>
-              <th rowspan='2'>Action</th>
+              <th rowspan='2' className='p-3 border font-medium'>
+                Action
+              </th>
             </tr>
 
             <tr>
@@ -63,12 +65,12 @@ function Table() {
                 <td className='p-3 border'>{item.luckyStrike ? "v" : "-"}</td>
                 <td className='p-3 border'>{item.marlboro ? "v" : "-"}</td>
                 <td className='p-3 border'>{item.esse ? "v" : "-"}</td>
-                <button
-                  className='p-3 border'
-                  onClick={() => dispatch(removeData(item))}
-                >
-                  <FaRegTrashAlt />
-                </button>
+                <td className='p-3 border'>
+                  <FaRegTrashAlt
+                    onClick={() => dispatch(removeData(item))}
+                    className='cursor-pointer'
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

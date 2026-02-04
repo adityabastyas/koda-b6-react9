@@ -8,11 +8,11 @@ const surveyResultSlice = createSlice({
   name: "survey",
   initialState,
   reducers: {
-    addData: (state, actions) => {
-      state.data.push(actions.payload);
+    addData: (state, action) => {
+      state.data.push(action.payload);
     },
-    removeData: (state, actions) => {
-      state.data = state.data.fil
+    removeData: (state, action) => {
+      state.data.splice(action.payload, 1);
     },
   },
 });
