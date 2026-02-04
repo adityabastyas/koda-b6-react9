@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { login } from "../redux/reducers/authReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 const validation = yup.object({
   email: yup.string().email("Email tidak valid").required("Email wajib diisi"),
@@ -15,9 +17,20 @@ function Login() {
     resolver: yupResolver(validation),
   });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userValid = useSelector((state) => state.auth.userValid);
+  const [error, setError] = React.useState("");
 
-  const onSave = () => {
-    navigate("/");
+  const onSave = (data) => {
+    if (
+      data.email === userValid.email &&
+      data.password === userValid.password
+    ) {
+      dispatch(login(data));
+      navigate("/");
+    } else {
+      setError("Email atau password salah");
+    }
   };
 
   return (
@@ -54,6 +67,7 @@ function Login() {
               {formState.errors.password.message}
             </span>
           )}
+          {error && <span className='text-sm text-red-700'>{error}</span>}
         </div>
         <button className='cursor-pointer border rounded-lg'>Login</button>
       </form>
