@@ -5,15 +5,22 @@ import Table from "./pages/Table";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import Login from "./pages/Login";
+import Heading from "./components/Heading";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <FormSurvey />,
-  },
-  {
-    path: "/submission",
-    element: <Table />,
+    element: <Heading />,
+    children: [
+      {
+        path: "/",
+        element: <FormSurvey />,
+      },
+      {
+        path: "/submission",
+        element: <Table />,
+      },
+    ],
   },
   {
     path: "/login",

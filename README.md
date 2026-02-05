@@ -1,16 +1,54 @@
-# React + Vite
+# Aplikasi surfey fomr roko
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Aplikasi **Survey Form Rokok** berbasis **React JS** yang digunakan untuk mengisi dan menampilkan data hasil survei dalam bentuk tabel.
 
-Currently, two official plugins are available:
+## Teknologin yang digunakan
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React JS
+- Tailwind CSS
+- Vite
+- JavaScript
 
-## React Compiler
+## feature
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Halaman login menggunakan email dan password
+- Form survey rokok untuk mengisi data responden
+- Submit data survey ke halaman submission
+- Menampilkan hasil survey dalam bentuk tabel
+- Data tersusun secara berurutan berdasarkan waktu submit
+- Navigasi kembali ke halaman form untuk mengisi data baru
 
-## Expanding the ESLint configuration
+#### screnshoot login
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![screnshoot login](./src/assets/login.png)
+
+#### screnshoot form
+
+![screnshoot form](./src/assets/form.png)
+
+#### screnshoot form
+
+![screnshoot form](./src/assets/form2.png)
+
+#### screnshoot submission
+
+![screnshoot submission](./src/assets/submission.png)
+
+#### screnshoot submission
+
+![screnshoot submission](./src/assets/submission2.png)
+
+## Cara Menajalanakan Aplikasi
+
+- Clone repositori ini
+- buka vscode
+- buka vscode di terminal dan jalankan npm install
+- jalankan progam npm run dev
+- terdapat halaman login
+- masuk menggunakan akun email dan password dan klik login
+- terdapat halaman yang berisi form survey rokok, dan isi nama dan lainnya yang sudah di sediakan
+- klik submit, makan akan mengarahkan ke halaman submission dan otomatis hasil dari form survey rokok akan mengisi di dalam tabel
+- klik ke halaman kembali ke form untuk mengisi kembali form input survey rokok
+- jika sudah terisi maka di halaman submission akan mengisi kembali berdasarkan form yang sudah di submit
+- di dalam tabel akan terisi secara urutan
+  -selesai

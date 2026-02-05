@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import Input from "../components/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addData } from "../redux/reducers/surveyResultReducer";
 import { useDispatch } from "react-redux";
 
@@ -32,7 +32,7 @@ function FormSurvey() {
   }
   return (
     <>
-      <div className='bg-[#f0ebf7] grid grid-cols-1 justify-center gap-5 my-8 px-[225px]'>
+      <div className='bg-[#f0ebf7] grid grid-cols-1 justify-center gap-5 mb-8 px-[225px]'>
         <header className='bg-white p-8 rounded-lg border-t-4 border-[#743f9f] flex flex-col gap-4'>
           <h1 className='text-4xl'>Form Survey Perokok</h1>
           <p className='text-base'>
