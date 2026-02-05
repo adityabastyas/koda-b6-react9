@@ -11,8 +11,8 @@
 
 ## feature
 
-- Halaman login menggunakan email dan password
-- Form survey rokok untuk mengisi data responden
+- Halaman login menggunakan email dan password dan sudah ada validasi
+- Form survey rokok untuk mengisi data dan sudah ada validasi
 - Submit data survey ke halaman submission
 - Menampilkan hasil survey dalam bentuk tabel
 - Data tersusun secara berurutan berdasarkan waktu submit
